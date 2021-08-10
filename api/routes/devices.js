@@ -18,9 +18,10 @@ import EmqxAuthRule from "../models/emqx_auth.js";
 const auth = {
   auth: {
     username: "admin",
-    password: "emqxsecret"
+    password: process.env.EMQX_DEFAULT_APPLICATION_SECRET
   }
 };
+
 
 //GET DEVICES
 router.get("/device", checkAuth, async (req, res) => {
@@ -278,7 +279,7 @@ async function createSaverRule(userId, dId, status) {
 
 
   try {
-    const url = "http://localhost:8085/api/v4/rules";
+    const url = "http://192.168.100.177:8085/api/v4/rules";
 
     const topic = userId + "/" + dId + "/+/sdata";
 
@@ -329,7 +330,7 @@ async function createSaverRule(userId, dId, status) {
 //update saver rule
 async function updateSaverRuleStatus(emqxRuleId, status) {
   try {
-    const url = "http://localhost:8085/api/v4/rules/" + emqxRuleId;
+    const url = "http://192.168.100.177:8085/api/v4/rules/" + emqxRuleId;
 
     const newRule = {
       enabled: status
@@ -354,7 +355,7 @@ async function deleteSaverRule(dId) {
   try {
     const mongoRule = await SaverRule.findOne({ dId: dId });
 
-    const url = "http://localhost:8085/api/v4/rules/" + mongoRule.emqxRuleId;
+    const url = "http://192.168.100.177:8085/api/v4/rules/" + mongoRule.emqxRuleId;
 
     const emqxRule = await axios.delete(url, auth);
 
@@ -375,7 +376,7 @@ async function deleteAllAlarmRules(userId, dId) {
 
     if (rules.length > 0) {
       asyncForEach(rules, async rule => {
-        const url = "http://localhost:8085/api/v4/rules/" + rule.emqxRuleId;
+        const url = "http://192.168.100.177:8085/api/v4/rules/" + rule.emqxRuleId;
         const res = await axios.delete(url, auth);
       });
 

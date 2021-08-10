@@ -6,7 +6,7 @@ const colors = require("colors");
 const auth = {
   auth: {
     username: "admin",
-    password: "emqxsecret"
+    password: process.env.EMQX_DEFAULT_APPLICATION_SECRET
   }
 };
 
@@ -33,7 +33,7 @@ Para borrar manualmente los recursos y reiniciemos node */
 async function listResources() {
 
 try {
-    const url = "http://localhost:8085/api/v4/resources/";
+    const url = "http://192.168.100.177:8085/api/v4/resources/";
 
     const res = await axios.get(url, auth);
   
@@ -97,14 +97,14 @@ try {
 async function createResources() {
 
     try {
-        const url = "http://localhost:8085/api/v4/resources";
+        const url = "http://192.168.177:8085/api/v4/resources";
 
         const data1 = {
             "type": "web_hook",
             "config": {
-                url: "http://localhost:3001/api/saver-webhook",
+                url: "http://192.168.100.177:3001/api/saver-webhook",
                 headers: {
-                    token: "121212"
+                    token: process.env.EMQX_API_TOKEN
                 },
                 method: "POST"
             },
@@ -114,9 +114,9 @@ async function createResources() {
         const data2 = {
             "type": "web_hook",
             "config": {
-                url: "http://localhost:3001/api/alarm-webhook",
+                url: "http://192.168.100.177:3001/api/alarm-webhook",
                 headers: {
-                    token: "121212"
+                    token: process.env.EMQX_API_TOKEN
                 },
                 method: "POST"
             },

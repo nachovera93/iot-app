@@ -4,27 +4,27 @@
       <ul class="nav">
         <li class="nav-item">
           <a
-            href="https://ioticos.org"
+            href="https://SerIOT.cl"
             target="_blank"
             rel="noopener"
             class="nav-link"
           >
-            IoTicos.org
+            SerIOT.cl
           </a>
         </li>
         <li class="nav-item">
           <a
-            href="https://ioticos.org"
+            href="https://SerIOT.cl"
             target="_blank"
             rel="noopener"
             class="nav-link"
           >
-            About Us
+            Sobre Nosotros
           </a>
         </li>
         <li class="nav-item">
           <a
-            href="hhttps://ioticos.org"
+            href="hhttps://SerIOT.cl"
             target="_blank"
             rel="noopener"
             class="nav-link"
@@ -34,15 +34,15 @@
         </li>
       </ul>
       <div class="copyright">
-        &copy; {{ year }}, made with <i class="tim-icons icon-heart-2"></i> by
+        &copy; {{ year }}, Hecho con <i class="tim-icons icon-heart-2"></i> por
         
         <a
-          href="https://ioticos.org"
+          href="https://IorSER.cl"
           target="_blank"
           rel="noopener"
-          >IoTicos</a
+          >SER IOT</a
         >
-        for a better web.
+        para una mejor web.
       </div>
     </div>
   </footer>
